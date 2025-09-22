@@ -374,7 +374,7 @@ const Index = () => {
       <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            © 2024 Universal File Converter. All rights reserved.
+            © 2024 Universal Tools All rights reserved.
           </p>
         </div>
       </footer>
