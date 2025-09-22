@@ -83,6 +83,7 @@ const Modern3DBMICalculator: React.FC = () => {
 
   const getBgColor = () => (theme === "dark" ? "bg-gray-900" : "bg-gray-50");
   const getTextColor = () => (theme === "dark" ? "text-white" : "text-gray-900");
+  const getPlaceholderColor = () => (theme === "dark" ? "placeholder-gray-300" : "placeholder-gray-500");
   const getCardBg = () =>
     theme === "dark" ? "bg-gray-800/60 backdrop-blur-md" : "bg-white/60 backdrop-blur-md";
 
@@ -143,7 +144,11 @@ const Modern3DBMICalculator: React.FC = () => {
                   <Button
                     key={u}
                     onClick={() => setUnit(u)}
-                    className={`flex-1 ${unit === u ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white" : getTextColor()}`}
+                    className={`flex-1 ${
+                      unit === u
+                        ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                        : getTextColor()
+                    }`}
                   >
                     {u === "metric" ? "Metric (kg/cm)" : "Imperial (lb/in)"}
                   </Button>
@@ -157,14 +162,14 @@ const Modern3DBMICalculator: React.FC = () => {
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
                   placeholder={unit === "metric" ? "Weight (kg)" : "Weight (lb)"}
-                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 text-white`}
+                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 ${getTextColor()} ${getPlaceholderColor()}`}
                 />
                 <input
                   type="number"
                   value={height}
                   onChange={(e) => setHeight(e.target.value)}
                   placeholder={unit === "metric" ? "Height (cm)" : "Height (inches)"}
-                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 text-white`}
+                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 ${getTextColor()} ${getPlaceholderColor()}`}
                 />
               </div>
 
@@ -175,12 +180,12 @@ const Modern3DBMICalculator: React.FC = () => {
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
                   placeholder="Age (optional)"
-                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 text-white`}
+                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 ${getTextColor()} ${getPlaceholderColor()}`}
                 />
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 text-white`}
+                  className={`w-full rounded-xl px-4 py-3 ${getCardBg()} border border-white/20 ${getTextColor()}`}
                 >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -205,7 +210,9 @@ const Modern3DBMICalculator: React.FC = () => {
           >
             {bmi ? (
               <div className="text-center space-y-6">
-                <div className={`text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r ${getCategoryGradient()}`}>
+                <div
+                  className={`text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r ${getCategoryGradient()}`}
+                >
                   {bmi}
                 </div>
                 <div className={`text-xl font-bold ${getTextColor()}`}>{category}</div>
@@ -260,7 +267,9 @@ const Modern3DBMICalculator: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="text-center text-gray-400 py-16">Enter your details to calculate BMI</div>
+              <div className="text-center text-gray-400 py-16">
+                Enter your details to calculate BMI
+              </div>
             )}
           </Card>
         </div>
