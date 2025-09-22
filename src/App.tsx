@@ -8,13 +8,13 @@ import ConversionPage from "./pages/ConversionPage";
 import NotFound from "./pages/NotFound";
 import CursorTracker from "./components/CursorTracker";
 import ThemeProvider from "./components/ThemeProvider";
-import PdfMergerPage from "./pages/PdfMergerPage";
-import PdfSplitterPage from "./pages/PdfSplitterPage";
-import AdvancedBmiCalculator from "./pages/AdvancedBmiCalculator";
-import BasicCalculatorPage from './pages/BasicCalculatorPage';
-import GraphingCalculatorPage from './pages/GraphingCalculatorPage';
-import FinancialCalculator from './pages/FinancialCalculator';
-import ProgrammableCalculatorPage from './pages/ProgrammableCalculator';
+import PdfMergerPage from "./pages/converter/PdfMergerPage";
+import PdfSplitterPage from "./pages/converter/PdfSplitterPage";
+import AdvancedBmiCalculator from "./pages/Calculators/AdvancedBmiCalculator";
+import BasicCalculatorPage from './pages/Calculators/BasicCalculatorPage';
+import GraphingCalculatorPage from './pages/Calculators/GraphingCalculatorPage';
+import FinancialCalculator from './pages/Calculators/FinancialCalculator';
+import ProgrammableCalculatorPage from './pages/Calculators/ProgrammableCalculator';
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -31,13 +31,13 @@ const App = () => (
               <Route path="/" element={<Index />} />
 
               {/* Existing mock conversions (keep these for unsupported backend-required ones) */}
-              {/* <Route path="/convert-pdf-to-word" element={<ConversionPage from="pdf" to="word" />} />
+               <Route path="/convert-pdf-to-word" element={<ConversionPage from="pdf" to="word" />} />
               <Route path="/convert-word-to-pdf" element={<ConversionPage from="word" to="pdf" />} />
-              <Route path="/convert-pdf-to-powerpoint" element={<ConversionPage from="pdf" to="powerpoint" />} />
-              <Route path="/convert-powerpoint-to-pdf" element={<ConversionPage from="powerpoint" to="pdf" />} /> */}
+              {/* <Route path="/convert-pdf-to-powerpoint" element={<ConversionPage from="pdf" to="powerpoint" />} />
+              <Route path="/convert-powerpoint-to-pdf" element={<ConversionPage from="powerpoint" to="pdf" />} /> */} 
 
               {/* Frontend-only conversions (new implemented ones) */}
-              <Route path="/convert-pdf-to-text" element={<ConversionPage from="pdf" to="text" />} />
+              {/* <Route path="/convert-pdf-to-text" element={<ConversionPage from="pdf" to="text" />} /> */}
               <Route path="/convert-text-to-pdf" element={<ConversionPage from="text" to="pdf" />} />
               <Route path="/convert-excel-to-text" element={<ConversionPage from="excel" to="text" />} />
               <Route path="/convert-text-to-excel" element={<ConversionPage from="text" to="excel" />} />
@@ -52,7 +52,11 @@ const App = () => (
               <Route path="/Basiccalculator" element={<BasicCalculatorPage />} />  {/* New Calculator Page */}
               <Route path="/graphing-calculator" element={<GraphingCalculatorPage />} />
               <Route path="/financial-calculator" element={<FinancialCalculator />} />
-    <Route path="/programmable-calculator" element={<ProgrammableCalculatorPage />} />
+              <Route path="/financial-calculator/:type" element={<FinancialCalculator />} />
+
+              <Route path="/programmable-calculator" element={<ProgrammableCalculatorPage />} />
+              <Route path="/programmable-calculator/:mode" element={<ProgrammableCalculatorPage />} />
+
               {/* Keep NotFound fallback */}
               <Route path="*" element={<NotFound />} />
             </Routes>

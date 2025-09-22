@@ -1,166 +1,380 @@
+// import React from 'react';
+// import {
+//   FileText,
+//   Image,
+//   File,
+//   Grid3X3,
+//   Calculator,
+//   Scissors,
+//   Layers,
+//   ArrowRight,
+//   Upload,
+//   Download,
+//   Shield,
+//   Zap,
+//   Globe,
+//   Clock
+// } from 'lucide-react';
+// import { Button } from '@/components/ui/button';
+// import { Card } from '@/components/ui/card';
+// import { Link } from 'react-router-dom';
+// import SettingsPanel from '@/components/SettingsPanel';
+
+// const Index = () => {
+//   // Conversion tools
+//   const conversions = [
+//     { name: 'PDF to JPG', path: '/convert-pdf-to-jpg', icon: FileText, color: 'bg-red-500', desc: 'Convert PDF pages to JPG images' },
+//     { name: 'JPG to PDF', path: '/convert-jpg-to-pdf', icon: Image, color: 'bg-blue-500', desc: 'Convert JPG images to PDF' },
+//     { name: 'PDF to Text', path: '/convert-pdf-to-text', icon: File, color: 'bg-green-500', desc: 'Extract text from PDF files' },
+//     { name: 'Text to PDF', path: '/convert-text-to-pdf', icon: FileText, color: 'bg-purple-500', desc: 'Convert text files to PDF' },
+//     { name: 'Excel to Text', path: '/convert-excel-to-text', icon: Grid3X3, color: 'bg-emerald-500', desc: 'Extract text from Excel files' },
+//     { name: 'Split PDF', path: '/pdf-splitter', icon: Scissors, color: 'bg-orange-500', desc: 'Split PDF into separate pages' },
+//     { name: 'Merge PDF', path: '/pdf-merger', icon: Layers, color: 'bg-pink-500', desc: 'Combine multiple PDFs into one' },
+//     { name: 'Text to Excel', path: '/convert-text-to-excel', icon: Grid3X3, color: 'bg-teal-500', desc: 'Convert text data to Excel' },
+//     { name: 'PNG to JPG', path: '/convert-png-to-jpg', icon: Image, color: 'bg-indigo-500', desc: 'Convert PNG images to JPG' },
+//     { name: 'JPG to PNG', path: '/convert-jpg-to-png', icon: Image, color: 'bg-cyan-500', desc: 'Convert JPG images to PNG' }
+//   ];
+
+//   // Calculator tools
+//   const calculators = [
+//     { name: 'BMI Calculator', path: '/bmi-calculator' },
+//     { name: 'Basic Calculator', path: '/basiccalculator' },
+//     { name: 'Graphing Calculator', path: '/graphing-calculator' },
+//     { name: 'Financial Calculator', path: '/financial-calculator' },
+//     { name: 'Programmable Calculator', path: '/programmable-calculator' }
+//   ];
+
+//   const features = [
+//     { icon: Zap, text: 'Lightning Fast' },
+//     { icon: Shield, text: 'Secure & Private' },
+//     { icon: Globe, text: 'Works Anywhere' },
+//     { icon: Clock, text: 'No Signup Required' }
+//   ];
+
+//   return (
+//     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+//       {/* Header */}
+//       <header className="bg-white dark:bg-gray-800 shadow-sm">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+//           <div className="flex items-center space-x-3">
+//             <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
+//               <FileText className="w-6 h-6 text-white" />
+//             </div>
+//             <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+//               Universal File Converter
+//             </h1>
+//           </div>
+//           <nav className="hidden md:flex space-x-8">
+//             <a href="#tools" className="text-gray-600 dark:text-gray-300 hover:text-red-500 font-medium">Tools</a>
+//             <a href="#calculators" className="text-gray-600 dark:text-gray-300 hover:text-red-500 font-medium">Calculators</a>
+//             <a href="#how-it-works" className="text-gray-600 dark:text-gray-300 hover:text-red-500 font-medium">How it Works</a>
+//           </nav>
+//         </div>
+//       </header>
+
+//       {/* Hero Section */}
+//       <section className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-gray-800 dark:to-gray-900 py-20 text-center">
+//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+//             Every tool you need to work with
+//             <span className="text-red-500 block">PDFs and More</span>
+//           </h1>
+//           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+//             Convert, merge, split and compress PDF files in just a few clicks. 
+//             100% free, secure and easy to use.
+//           </p>
+
+//           {/* Features */}
+//           <div className="flex flex-wrap justify-center gap-4 mb-12">
+//             {features.map((f, i) => (
+//               <div key={i} className="flex items-center space-x-2 bg-white dark:bg-gray-700 rounded-full px-4 py-2 shadow-sm">
+//                 <f.icon className="w-4 h-4 text-red-500" />
+//                 <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{f.text}</span>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* PDF Tools */}
+//       <section id="tools" className="py-16 px-4 sm:px-6 lg:px-8">
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">PDF Tools</h2>
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+//             {conversions.map((tool, i) => (
+//               <Link key={i} to={tool.path}>
+//                 <Card className="p-6 shadow-sm hover:shadow-xl transition rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 cursor-pointer group h-full flex flex-col justify-between">
+//                   <div>
+//                     <div className={`w-16 h-16 ${tool.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition`}>
+//                       <tool.icon className="w-8 h-8 text-white" />
+//                     </div>
+//                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-red-500">{tool.name}</h3>
+//                     <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{tool.desc}</p>
+//                   </div>
+//                   <div className="mt-4 flex items-center text-red-500 opacity-0 group-hover:opacity-100 transition">
+//                     <span className="text-sm font-medium">Try it now</span>
+//                     <ArrowRight className="w-4 h-4 ml-1" />
+//                   </div>
+//                 </Card>
+//               </Link>
+//             ))}
+//           </div>
+
+//           {/* Calculator Tools */}
+//           <h2 id="calculators" className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">Calculator Tools</h2>
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+//             {calculators.map((calc, i) => (
+//               <Link key={i} to={calc.path}>
+//                 <Card className="p-6 shadow-sm hover:shadow-xl transition rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 cursor-pointer group h-full flex flex-col justify-between">
+//                   <div>
+//                     <div className="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
+//                       <Calculator className="w-8 h-8 text-white" />
+//                     </div>
+//                     {/* ✅ force uniform height by clamping */}
+//                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-500 line-clamp-2">
+//                       {calc.name}
+//                     </h3>
+//                   </div>
+//                   <div className="mt-4 flex items-center text-blue-500 opacity-0 group-hover:opacity-100 transition">
+//                     <span className="text-sm font-medium">Calculate</span>
+//                     <ArrowRight className="w-4 h-4 ml-1" />
+//                   </div>
+//                 </Card>
+//               </Link>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* How it works */}
+//       <section id="how-it-works" className="bg-gray-100 dark:bg-gray-800 py-16">
+//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">How it Works</h2>
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+//             <div>
+//               <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+//                 <Upload className="w-8 h-8 text-white" />
+//               </div>
+//               <h3 className="text-xl font-semibold mb-2">1. Upload</h3>
+//               <p className="text-gray-600 dark:text-gray-300">Select your files from your computer, Google Drive, or Dropbox</p>
+//             </div>
+//             <div>
+//               <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+//                 <Zap className="w-8 h-8 text-white" />
+//               </div>
+//               <h3 className="text-xl font-semibold mb-2">2. Convert</h3>
+//               <p className="text-gray-600 dark:text-gray-300">Our tools will automatically process your files in seconds</p>
+//             </div>
+//             <div>
+//               <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+//                 <Download className="w-8 h-8 text-white" />
+//               </div>
+//               <h3 className="text-xl font-semibold mb-2">3. Download</h3>
+//               <p className="text-gray-600 dark:text-gray-300">Download your converted files instantly and securely</p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Footer */}
+//       <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-12">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+//           <p className="text-gray-600 dark:text-gray-400 text-sm">
+//             © 2024 Universal File Converter. All rights reserved.
+//           </p>
+//         </div>
+//       </footer>
+
+//       <SettingsPanel />
+//     </div>
+//   );
+// };
+
+// export default Index;
+
+
 import React from 'react';
 import {
-  ArrowRight,
   FileText,
   Image,
   File,
   Grid3X3,
-  Zap,
+  Calculator,
+  Scissors,
+  Layers,
+  ArrowRight,
+  Upload,
+  Download,
   Shield,
-  Clock,
+  Zap,
+  Globe,
+  Clock
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import SettingsPanel from '@/components/SettingsPanel';
 
 const Index = () => {
+  // Conversion tools (removed fixed colors)
   const conversions = [
-    { from: 'PDF', to: 'JPG', path: '/convert-pdf-to-jpg', fromIcon: FileText, toIcon: Image, fromColor: 'text-red-500', toColor: 'text-purple-500' },
-    { from: 'JPG', to: 'PDF', path: '/convert-jpg-to-pdf', fromIcon: Image, toIcon: FileText, fromColor: 'text-purple-500', toColor: 'text-red-500' },
-    { from: 'PDF', to: 'Text', path: '/convert-pdf-to-text', fromIcon: FileText, toIcon: File, fromColor: 'text-red-500', toColor: 'text-gray-500' },
-    { from: 'Text', to: 'PDF', path: '/convert-text-to-pdf', fromIcon: File, toIcon: FileText, fromColor: 'text-gray-500', toColor: 'text-red-500' },
-    { from: 'Excel', to: 'Text', path: '/convert-excel-to-text', fromIcon: Grid3X3, toIcon: File, fromColor: 'text-green-500', toColor: 'text-gray-500' },
-    { from: 'PDF', to: 'Split', path: '/pdf-splitter', fromIcon: FileText, toIcon: File, fromColor: 'text-red-500', toColor: 'text-gray-500' },
-    { from: 'PDFs', to: 'Merge', path: '/pdf-merger', fromIcon: FileText, toIcon: FileText, fromColor: 'text-red-500', toColor: 'text-blue-500' },
-    { from: 'Text', to: 'Excel', path: '/convert-text-to-excel', fromIcon: File, toIcon: Grid3X3, fromColor: 'text-gray-500', toColor: 'text-green-500' },
-    { from: 'PNG', to: 'JPG', path: '/convert-png-to-jpg', fromIcon: Image, toIcon: Image, fromColor: 'text-blue-500', toColor: 'text-yellow-600' },
-    { from: 'JPG', to: 'PNG', path: '/convert-jpg-to-png', fromIcon: Image, toIcon: Image, fromColor: 'text-yellow-600', toColor: 'text-blue-500' },
+    { name: 'PDF to JPG', path: '/convert-pdf-to-jpg', icon: FileText, desc: 'Convert PDF pages to JPG images' },
+    { name: 'JPG to PDF', path: '/convert-jpg-to-pdf', icon: Image, desc: 'Convert JPG images to PDF' },
+    { name: 'PDF to Word', path: '/convert-pdf-to-word', icon: File, desc: 'Convert you Pdf File to Word' },
+    { name: 'Text to PDF', path: '/convert-text-to-pdf', icon: FileText, desc: 'Convert text files to PDF' },
+    { name: 'Excel to Text', path: '/convert-excel-to-text', icon: Grid3X3, desc: 'Extract text from Excel files' },
+    { name: 'Split PDF', path: '/pdf-splitter', icon: Scissors, desc: 'Split PDF into separate pages' },
+    { name: 'Merge PDF', path: '/pdf-merger', icon: Layers, desc: 'Combine multiple PDFs into one' },
+    { name: 'Text to Excel', path: '/convert-text-to-excel', icon: Grid3X3, desc: 'Convert text data to Excel' },
+    { name: 'PNG to JPG', path: '/convert-png-to-jpg', icon: Image, desc: 'Convert PNG images to JPG' },
+    { name: 'JPG to PNG', path: '/convert-jpg-to-png', icon: Image, desc: 'Convert JPG images to PNG' },
+    { name: 'Word to Pdf', path: '/convert-word-to-pdf', icon: Image, desc: 'Convert word to Pdf' }
+  ];
+
+  // Calculator tools
+  const calculators = [
+    { name: 'BMI Calculator', path: '/bmi-calculator' },
+    { name: 'Basic Calculator', path: '/basiccalculator' },
+    { name: 'Graphing Calculator', path: '/graphing-calculator' },
+    { name: 'Financial Calculator', path: '/financial-calculator' },
+    { name: 'Programmable Calculator', path: '/programmable-calculator' }
   ];
 
   const features = [
-    { icon: Zap, title: 'Lightning Fast', description: 'Convert files in seconds with our optimized processing' },
-    { icon: Shield, title: 'Secure & Private', description: 'Your files are processed securely and deleted after conversion' },
-    { icon: Clock, title: 'No Signup Required', description: 'Start converting immediately without creating an account' },
-  ];
-
-  const calculatorButtons = [
-    { title: 'BMI Calculator', path: '/bmi-calculator' },
-    { title: 'School Calculator', path: '/basiccalculator' },
-    { title: 'Graphing Calculator', path: '/graphing-calculator' },
-    { title: 'Financial Calculator', path: '/financial-calculator' },
-    { title: 'Programmable Calculator', path: '/programmable-calculator' },
+    { icon: Zap, text: 'Lightning Fast' },
+    { icon: Shield, text: 'Secure & Private' },
+    { icon: Globe, text: 'Works Anywhere' },
+    { icon: Clock, text: 'No Signup Required' }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-muted/10">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+      {/* Header */}
+      <header className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-[hsl(var(--primary))] rounded-lg flex items-center justify-center">
+              <FileText className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            Convert, Calculate, and Simplify Your Tasks
+            </h1>
+          </div>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#tools" className="text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--primary))] font-medium">Tools</a>
+            <a href="#calculators" className="text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--primary))] font-medium">Calculators</a>
+            <a href="#how-it-works" className="text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--primary))] font-medium">How it Works</a>
+          </nav>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="relative py-20 px-4 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-        <div className="relative max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Universal File
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent block">
-              Converter
-            </span>
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 py-20 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            Every tool you need to work with
+            <span className="text-[hsl(var(--primary))] block">PDFs and More</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Convert between PDF, Word, Excel, PowerPoint, JPG, and Text formats instantly. Fast, secure, and completely free.
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            Convert, merge, split and compress PDF files in just a few clicks. 
+            100% free, secure and easy to use.
           </p>
 
-{/* Calculator Buttons */}
-<div className="flex flex-wrap justify-center gap-6 mb-12">
-  {calculatorButtons.map((btn) => (
-    <Link key={btn.path} to={btn.path}>
-      <Button
-        className="
-          relative
-          px-6 py-4
-          text-lg font-bold
-          rounded-xl
-          bg-primary
-          text-primary-foreground
-          shadow-md
-          hover:shadow-lg
-          hover:bg-primary/90
-          transform hover:-translate-y-1 hover:scale-105
-          transition-all duration-300
-          flex items-center justify-center gap-2
-        "
-      >
-        <Zap className="w-5 h-5" />
-        {btn.title}
-      </Button>
-    </Link>
-  ))}
-</div>
-
-
-          {/* Feature Pills */}
+          {/* Features */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition"
-              >
-                <feature.icon className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground truncate">{feature.title}</span>
+            {features.map((f, i) => (
+              <div key={i} className="flex items-center space-x-2 bg-white dark:bg-gray-700 rounded-full px-4 py-2 shadow-sm">
+                <f.icon className="w-4 h-4 text-[hsl(var(--primary))]" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{f.text}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Conversion Grid */}
-      <section className="py-16 px-4 flex-1">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">Choose Your Conversion</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {conversions.map((conversion) => {
-              const FromIcon = conversion.fromIcon;
-              const ToIcon = conversion.toIcon;
-
-              return (
-                <Link key={conversion.path} to={conversion.path}>
-                  <Card className="relative p-4 md:p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-2xl border border-white/20 group overflow-hidden rounded-2xl h-full">
-                    <div className="relative z-10 flex flex-col h-full justify-between">
-                      <div className="flex flex-col lg:flex-row items-center justify-between mb-6 space-y-4 lg:space-y-0 w-full">
-                        <div className="flex items-center gap-3 md:gap-4 w-full lg:w-auto min-w-0">
-                          <div className="relative p-3 md:p-4 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 border border-white/10">
-                            <FromIcon className={`w-6 h-6 md:w-10 md:h-10 ${conversion.fromColor}`} />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <span className="font-bold text-lg md:text-xl text-foreground block truncate">{conversion.from}</span>
-                            <span className="text-xs md:text-sm text-muted-foreground truncate">Source format</span>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                          <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-                          <span className="hidden md:block text-xs text-muted-foreground mt-1">Convert</span>
-                        </div>
-
-                        <div className="flex items-center gap-3 md:gap-4 w-full lg:w-auto min-w-0">
-                          <div className="min-w-0 flex-1 text-left lg:text-right">
-                            <span className="font-bold text-lg md:text-xl text-foreground block truncate">{conversion.to}</span>
-                            <span className="text-xs md:text-sm text-muted-foreground truncate">Target format</span>
-                          </div>
-                          <div className="relative p-3 md:p-4 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 border border-white/10">
-                            <ToIcon className={`w-6 h-6 md:w-10 md:h-10 ${conversion.toColor}`} />
-                          </div>
-                        </div>
-                      </div>
-
-                      <Button className="w-full h-12 bg-gradient-to-r from-primary via-primary-glow to-accent text-primary-foreground font-bold text-sm md:text-base rounded-xl overflow-hidden">
-                        <span className="truncate flex items-center justify-center gap-2">
-                          Convert {conversion.from} to {conversion.to}
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </Button>
+      {/* PDF Tools */}
+      <section id="tools" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">PDF Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+            {conversions.map((tool, i) => (
+              <Link key={i} to={tool.path}>
+                <Card className="p-6 shadow-sm hover:shadow-xl transition rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 cursor-pointer group h-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-16 h-16 bg-[hsl(var(--primary))] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                      <tool.icon className="w-8 h-8 text-white" />
                     </div>
-                  </Card>
-                </Link>
-              );
-            })}
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-[hsl(var(--primary))]">{tool.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{tool.desc}</p>
+                  </div>
+                  <div className="mt-4 flex items-center text-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition">
+                    <span className="text-sm font-medium">Try it now</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          {/* Calculator Tools */}
+          <h2 id="calculators" className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">Calculator Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {calculators.map((calc, i) => (
+              <Link key={i} to={calc.path}>
+                <Card className="p-6 shadow-sm hover:shadow-xl transition rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 cursor-pointer group h-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-16 h-16 bg-[hsl(var(--primary))] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                      <Calculator className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-[hsl(var(--primary))] line-clamp-2">
+                      {calc.name}
+                    </h3>
+                  </div>
+                  <div className="mt-4 flex items-center text-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition">
+                    <span className="text-sm font-medium">Calculate</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="how-it-works" className="bg-gray-100 dark:bg-gray-800 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">How it Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="w-16 h-16 bg-[hsl(var(--primary))] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Upload className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">1. Upload</h3>
+              <p className="text-gray-600 dark:text-gray-300">Select your files from your computer, Google Drive, or Dropbox</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 bg-[hsl(var(--primary))] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">2. Convert</h3>
+              <p className="text-gray-600 dark:text-gray-300">Our tools will automatically process your files in seconds</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 bg-[hsl(var(--primary))] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Download className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">3. Download</h3>
+              <p className="text-gray-600 dark:text-gray-300">Download your converted files instantly and securely</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 text-center border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-muted-foreground">
-            © 2024 Universal File Converter. Convert your files with confidence.
+      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
+            © 2024 Universal File Converter. All rights reserved.
           </p>
         </div>
       </footer>

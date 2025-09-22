@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.toolsx.site/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Conversion Pages -->
+  <url><loc>https://www.toolsx.site/convert-word-to-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-text-to-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-pdf-to-word</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-excel-to-text</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-text-to-excel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-jpg-to-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-pdf-to-jpg</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-png-to-jpg</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/convert-jpg-to-png</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- PDF Tools -->
+  <url><loc>https://www.toolsx.site/pdf-merger</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/pdf-splitter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Calculator Pages -->
+  <url><loc>https://www.toolsx.site/bmi-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/basiccalculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/graphing-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  
+  <!-- Financial Calculator Sub-Tools -->
+  <url><loc>https://www.toolsx.site/financial-calculator/emi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator/profitloss</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator/simpleinterest</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator/compoundinterest</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator/roi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/financial-calculator/depreciation</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Programmable Calculator Main -->
+  <url><loc>https://www.toolsx.site/programmable-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Programmable Calculator Sub-Tools -->
+  <url><loc>https://www.toolsx.site/programmable-calculator/Evaluate</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Simplify</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Factor</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Expand</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Derivative</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Integrate</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolsx.site/programmable-calculator/Solve</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+</urlset>

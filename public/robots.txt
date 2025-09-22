@@ -1,14 +1,22 @@
+# robots.txt - Optimized
+
+# Allow major search engines full access
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+# Allow social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+# Default rule for all other bots
 User-agent: *
 Allow: /
+
+# Optional: point to your sitemap for faster indexing
+Sitemap: ttps://www.toolsx.site/sitemap.xml

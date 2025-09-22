@@ -7,14 +7,15 @@ import SettingsPanel from '@/components/SettingsPanel';
 import { useToast } from '@/hooks/use-toast';
 
 // Import conversion handlers
-import PngToJpgConverter from './PngToJpgConverter';
-import JpgToPngConverter from './JpgToPngConverter';
-import PdfToTextConverter from './PdfToTextConverter';
-import PdfToImageConverter from './PdfToImageConverter';
-import JpgToPdfConverter from './JpgToPdfConverter'; // ✅ fixed
-import TextToPdfConverter from './TextToPdfConverter';
-import ExcelToTextConverter from './ExcelToTextConverter';
-import TextToExcelConverter from './TextToExcelConverter';
+import PngToJpgConverter from './converter/PngToJpgConverter';
+import JpgToPngConverter from './converter/JpgToPngConverter';
+import PdfToWordConverter from './converter/PdfToWordConverter';
+import WordToPdfConverter from './converter/WordtoPdfconverter';
+import PdfToImageConverter from './converter/PdfToImageConverter';
+import JpgToPdfConverter from './converter/JpgToPdfConverter'; // ✅ fixed
+import TextToPdfConverter from './converter/TextToPdfConverter';
+import ExcelToTextConverter from './converter/ExcelToTextConverter';
+import TextToExcelConverter from './converter/TextToExcelConverter';
 
 // Import format configuration
 import { formatConfig } from './formatConfig';
@@ -44,8 +45,10 @@ const ConversionPage: React.FC<ConversionPageProps> = ({ from, to }) => {
     const conversionKey = `${from}_to_${to}`;
     
     switch (conversionKey) {
-      case 'pdf_to_text':
-        return PdfToTextConverter;
+      case 'pdf_to_word':
+        return PdfToWordConverter;
+      case 'word_to_pdf':
+        return WordToPdfConverter;
       case 'pdf_to_jpg':
       case 'pdf_to_png':
         return PdfToImageConverter;
@@ -53,7 +56,7 @@ const ConversionPage: React.FC<ConversionPageProps> = ({ from, to }) => {
         return PngToJpgConverter;
       case 'jpg_to_png':
         return JpgToPngConverter;
-      case 'jpg_to_pdf':   // ✅ new
+      case 'jpg_to_pdf':
         return JpgToPdfConverter;
       case 'text_to_pdf':
         return TextToPdfConverter;
