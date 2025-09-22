@@ -233,7 +233,7 @@ const Index = () => {
   // Calculator tools
   const calculators = [
     { name: 'BMI Calculator', path: '/bmi-calculator' },
-    { name: 'Basic Calculator', path: '/basiccalculator' },
+    { name: 'Basic Calculator', path: '/basic-calculator' },
     { name: 'Graphing Calculator', path: '/graphing-calculator' },
     { name: 'Financial Calculator', path: '/financial-calculator' },
     { name: 'Programmable Calculator', path: '/programmable-calculator' }

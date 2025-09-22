@@ -4,12 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import FileUploadZone from "@/components/FileUploadZone";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Download,
-  FileText,
-  SplitSquareVertical,
-  ArrowRight,
-} from "lucide-react";
+import { Download, FileText, SplitSquareVertical, ArrowRight } from "lucide-react";
 
 const PdfSplitterPage: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -28,6 +23,7 @@ const PdfSplitterPage: React.FC = () => {
 
   const handleSplit = async () => {
     if (!file) return;
+
     try {
       setIsConverting(true);
       setProgress(0);
@@ -36,13 +32,15 @@ const PdfSplitterPage: React.FC = () => {
       const pdf = await PDFDocument.load(bytes);
 
       const urls: string[] = [];
+
       for (let i = 0; i < pdf.getPageCount(); i++) {
         const newPdf = await PDFDocument.create();
         const [copiedPage] = await newPdf.copyPages(pdf, [i]);
         newPdf.addPage(copiedPage);
 
         const pdfBytes = await newPdf.save();
-        const blob = new Blob([pdfBytes], { type: "application/pdf" });
+        // ✅ Fixed Blob issue using Uint8Array.from
+        const blob = new Blob([Uint8Array.from(pdfBytes)], { type: "application/pdf" });
         urls.push(URL.createObjectURL(blob));
 
         setProgress(Math.round(((i + 1) / pdf.getPageCount()) * 100));
@@ -88,7 +86,8 @@ const PdfSplitterPage: React.FC = () => {
       }
 
       const mergedBytes = await newPdf.save();
-      const blob = new Blob([mergedBytes], { type: "application/pdf" });
+      // ✅ Fixed Blob issue
+      const blob = new Blob([Uint8Array.from(mergedBytes)], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
 
       const link = document.createElement("a");
@@ -127,7 +126,7 @@ const PdfSplitterPage: React.FC = () => {
           <p className="text-gray-500">Fast. Secure. No signup required.</p>
         </div>
 
-        {/* Main Card (Same layout as Converter) */}
+        {/* Main Card */}
         <Card className="p-8 mb-8 bg-card border border-border shadow-lg">
           <div className="flex flex-col items-center justify-center space-y-6">
             {/* Upload */}
@@ -149,12 +148,10 @@ const PdfSplitterPage: React.FC = () => {
               </Button>
             )}
 
-            {/* Success Message + Downloads */}
+            {/* Success + Downloads */}
             {splitFiles.length > 0 && (
               <div className="w-full text-center space-y-6">
-                <div className="text-green-500 font-medium">
-                  ✓ Split Complete!
-                </div>
+                <div className="text-green-500 font-medium">✓ Split Complete!</div>
 
                 {/* Thumbnails */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -179,9 +176,7 @@ const PdfSplitterPage: React.FC = () => {
                             checked={selectedPages.includes(i)}
                             onChange={() => togglePageSelect(i)}
                           />
-                          <span className="font-medium text-sm">
-                            Page {i + 1}
-                          </span>
+                          <span className="font-medium text-sm">Page {i + 1}</span>
                         </label>
                         <Button
                           size="sm"
@@ -195,7 +190,7 @@ const PdfSplitterPage: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Download Selected Pages */}
+                {/* Download Selected */}
                 {selectedPages.length > 0 && (
                   <Button
                     onClick={handleDownloadSelected}

@@ -86,9 +86,10 @@ class WordToPdfConverter {
         throw new Error('Invalid PDF format generated');
       }
 
-      return new Blob([pdfBytes], { 
+      return new Blob([pdfBytes.slice()], { 
         type: "application/pdf"
       });
+      
     } catch (error) {
       console.error("PDF conversion failed:", error);
       throw new Error(`PDF conversion failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
