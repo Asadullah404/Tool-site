@@ -19,4 +19,4 @@ User-agent: *
 Allow: /
 
 # Optional: point to your sitemap for faster indexing
-Sitemap: ttps://www.toolsx.site/sitemap.xml
+Sitemap: https://www.toolsx.site/sitemap.xml
