@@ -2,14 +2,14 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "destination": "https://www.toolsx.site/$1",
       "has": [
-        { "type": "host", "value": "toolsx.site" }
+        {
+          "type": "host",
+          "value": "toolsx.site"
+        }
       ],
-      "destination": "https://www.toolsx.site/:1",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
   ]
 }
