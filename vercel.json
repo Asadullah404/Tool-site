@@ -1,24 +1,5 @@
 {
-  "trailingSlash": true,
-  "redirects": [
-    {
-      "source": "http://:path*",
-      "destination": "https://www.toolsx.site/:path*",
-      "permanent": true
-    },
-    {
-      "source": "https://toolsx.site/:path*",
-      "destination": "https://www.toolsx.site/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite"
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
