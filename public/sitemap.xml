@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.toolsx.site/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Tools -->
+  <url><loc>https://www.toolsx.site/tools/merge-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/split-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/compress-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/pdf-to-word</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/pdf-to-powerpoint</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/pdf-to-excel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/word-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/powerpoint-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/excel-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/pdf-to-jpg</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/jpg-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/sign-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/watermark-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/rotate-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/html-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/unlock-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/protect-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/text-to-pdf</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/pdf-to-text</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/excel-to-text</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/text-to-excel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  
+  <url><loc>https://www.toolsx.site/tools/compress-image</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/resize-image</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/crop-image</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/convert-to-jpg</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/convert-from-jpg</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/png-to-jpg</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/jpg-to-png</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  
+  <url><loc>https://www.toolsx.site/tools/bmi-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/basic-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/graphing-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/financial-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/emi-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/profit-loss-calc</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/depreciation-calc</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/math-simplify</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/math-factor</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/math-derivative</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/math-integrate</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/math-solve</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolsx.site/tools/programmable-calculator</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://www.toolsx.site/tools/yt-to-mp3</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/yt-to-mp4</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/ai-grammar</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/ai-summarizer</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolsx.site/tools/ai-translator</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  
+  <url><loc>https://www.toolsx.site/login</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.toolsx.site/register</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.toolsx.site/premium</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>
