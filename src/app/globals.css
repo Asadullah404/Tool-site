@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+input, textarea {
+  color: #111827; /* tailwind gray-900 */
+}
+
+@media (prefers-color-scheme: dark) {
+  input, textarea {
+    color: #f9fafb; /* tailwind gray-50 */
+  }
+}
