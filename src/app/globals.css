@@ -26,11 +26,5 @@ body {
 }
 
 input, textarea, select {
-  color: #111827 !important; /* tailwind gray-900 */
-}
-
-@media (prefers-color-scheme: dark) {
-  input, textarea, select {
-    color: #f9fafb !important; /* tailwind gray-50 */
-  }
+  color: #000000 !important;
 }
