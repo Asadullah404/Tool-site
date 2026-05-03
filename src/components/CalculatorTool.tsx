@@ -369,11 +369,11 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       <div className="flex-1 space-y-6 w-full">
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Height (cm)</label>
-          <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Weight (kg)</label>
-          <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <button onClick={calculateBMI} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate BMI</button>
       </div>
@@ -396,15 +396,15 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       <div className="flex-1 space-y-6 w-full">
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Principal Amount ($)</label>
-          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">{isEMI ? 'Annual Interest Rate (%)' : 'Interest Rate (%)'}</label>
-          <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">{isEMI ? 'Time (Years)' : 'Time Period'}</label>
-          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <button onClick={calculateFn} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>
       </div>
@@ -420,11 +420,11 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       <div className="flex-1 space-y-6 w-full">
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Cost Price ($)</label>
-          <input type="number" value={costPrice} onChange={(e) => setCostPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={costPrice} onChange={(e) => setCostPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Selling Price ($)</label>
-          <input type="number" value={sellingPrice} onChange={(e) => setSellingPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={sellingPrice} onChange={(e) => setSellingPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <button onClick={calculateProfitLoss} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>
       </div>
@@ -440,15 +440,15 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       <div className="flex-1 space-y-6 w-full">
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Asset Cost ($)</label>
-          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Salvage Value ($)</label>
-          <input type="number" value={salvageValue} onChange={(e) => setSalvageValue(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={salvageValue} onChange={(e) => setSalvageValue(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Useful Life (Years)</label>
-          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" />
         </div>
         <button onClick={calculateDepreciation} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate Straight Line</button>
       </div>
@@ -464,12 +464,12 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       <div className="flex-1 space-y-6 w-full">
         <div>
           <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Mathematical Expression</label>
-          <input type="text" value={mathExpr} onChange={(e) => setMathExpr(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" placeholder="e.g. 2x + 3x or sin(x)" />
+          <input type="text" value={mathExpr} onChange={(e) => setMathExpr(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" placeholder="e.g. 2x + 3x or sin(x)" />
         </div>
         {(toolId === 'math-derivative' || toolId === 'math-integrate') && (
           <div>
             <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Variable to differentiate/integrate with respect to</label>
-            <input type="text" value={mathVar} onChange={(e) => setMathVar(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" placeholder="e.g. x" />
+            <input type="text" value={mathVar} onChange={(e) => setMathVar(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-gray-900" placeholder="e.g. x" />
           </div>
         )}
         <button onClick={solveMath} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>

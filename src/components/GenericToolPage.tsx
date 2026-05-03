@@ -167,7 +167,7 @@ export default function GenericToolPage({ toolId }: GenericToolPageProps) {
         <input 
           type="text" 
           placeholder="Paste URL here (YouTube, Facebook, etc.)..."
-          className="flex-grow p-5 border-2 border-gray-100 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none text-lg font-medium"
+          className="flex-grow p-5 border-2 border-gray-100 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none text-lg font-medium text-gray-900"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
@@ -187,7 +187,7 @@ export default function GenericToolPage({ toolId }: GenericToolPageProps) {
     <div className="py-8">
       <textarea 
         placeholder="Paste your text or code here..."
-        className="w-full h-64 p-6 border-2 border-gray-100 rounded-3xl focus:ring-4 focus:ring-indigo-100 outline-none text-lg font-mono mb-6"
+        className="w-full h-64 p-6 border-2 border-gray-100 rounded-3xl focus:ring-4 focus:ring-indigo-100 outline-none text-lg font-mono mb-6 text-gray-900"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
@@ -206,15 +206,15 @@ export default function GenericToolPage({ toolId }: GenericToolPageProps) {
       <div className="space-y-4">
         <div>
           <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">{tool.id === 'crypto-profit' ? 'Investment ($)' : 'Principal Amount ($)'}</label>
-          <input type="number" value={financePrincipal} onChange={(e) => setFinancePrincipal(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold" />
+          <input type="number" value={financePrincipal} onChange={(e) => setFinancePrincipal(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">{tool.id === 'crypto-profit' ? 'Expected Return (%)' : 'Interest Rate (%)'}</label>
-          <input type="number" value={financeRate} onChange={(e) => setFinanceRate(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold" />
+          <input type="number" value={financeRate} onChange={(e) => setFinanceRate(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold text-gray-900" />
         </div>
         <div>
           <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Time Period (Years)</label>
-          <input type="number" value={financeTime} onChange={(e) => setFinanceTime(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold" />
+          <input type="number" value={financeTime} onChange={(e) => setFinanceTime(e.target.value)} className="w-full p-4 border-2 border-gray-100 rounded-xl outline-none focus:border-yellow-600 font-bold text-gray-900" />
         </div>
         <button 
           onClick={handleProcess}

@@ -238,7 +238,7 @@ export default function ImageEditorTool({ toolId }: ImageEditorToolProps) {
             {toolId === 'watermark-image' && (
               <div className="flex flex-col w-full max-w-sm">
                 <label className="text-xs font-bold text-gray-500 uppercase mb-1">Watermark Text (Drag on image to move)</label>
-                <input type="text" value={watermarkText} onChange={(e) => setWatermarkText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-3 font-bold" />
+                <input type="text" value={watermarkText} onChange={(e) => setWatermarkText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-3 font-bold text-gray-900" />
               </div>
             )}
 
@@ -246,21 +246,21 @@ export default function ImageEditorTool({ toolId }: ImageEditorToolProps) {
               <div className="flex gap-4 w-full max-w-lg">
                 <div className="flex-1 flex flex-col">
                   <label className="text-xs font-bold text-gray-500 uppercase mb-1">Top Text (Draggable)</label>
-                  <input type="text" value={topText} onChange={(e) => setTopText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 font-bold" />
+                  <input type="text" value={topText} onChange={(e) => setTopText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 font-bold text-gray-900" />
                 </div>
                 <div className="flex-1 flex flex-col">
                   <label className="text-xs font-bold text-gray-500 uppercase mb-1">Bottom Text (Draggable)</label>
-                  <input type="text" value={bottomText} onChange={(e) => setBottomText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 font-bold" />
+                  <input type="text" value={bottomText} onChange={(e) => setBottomText(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 font-bold text-gray-900" />
                 </div>
               </div>
             )}
 
             {toolId === 'photo-editor' && (
               <div className="grid grid-cols-2 gap-4 w-full max-w-lg">
-                <div className="flex flex-col"><label className="text-xs font-bold">Brightness</label><input type="range" min="0" max="200" value={filters.brightness} onChange={e => setFilters({...filters, brightness: +e.target.value})} /></div>
-                <div className="flex flex-col"><label className="text-xs font-bold">Contrast</label><input type="range" min="0" max="200" value={filters.contrast} onChange={e => setFilters({...filters, contrast: +e.target.value})} /></div>
-                <div className="flex flex-col"><label className="text-xs font-bold">Grayscale</label><input type="range" min="0" max="100" value={filters.grayscale} onChange={e => setFilters({...filters, grayscale: +e.target.value})} /></div>
-                <div className="flex flex-col"><label className="text-xs font-bold">Sepia</label><input type="range" min="0" max="100" value={filters.sepia} onChange={e => setFilters({...filters, sepia: +e.target.value})} /></div>
+                <div className="flex flex-col text-gray-900"><label className="text-xs font-bold">Brightness</label><input type="range" min="0" max="200" value={filters.brightness} onChange={e => setFilters({...filters, brightness: +e.target.value})} /></div>
+                <div className="flex flex-col text-gray-900"><label className="text-xs font-bold">Contrast</label><input type="range" min="0" max="200" value={filters.contrast} onChange={e => setFilters({...filters, contrast: +e.target.value})} /></div>
+                <div className="flex flex-col text-gray-900"><label className="text-xs font-bold">Grayscale</label><input type="range" min="0" max="100" value={filters.grayscale} onChange={e => setFilters({...filters, grayscale: +e.target.value})} /></div>
+                <div className="flex flex-col text-gray-900"><label className="text-xs font-bold">Sepia</label><input type="range" min="0" max="100" value={filters.sepia} onChange={e => setFilters({...filters, sepia: +e.target.value})} /></div>
               </div>
             )}
 
@@ -338,12 +338,12 @@ export default function ImageEditorTool({ toolId }: ImageEditorToolProps) {
               <div className="flex gap-4 items-center">
                 <div className="flex flex-col">
                   <label className="text-xs font-bold text-gray-500 uppercase">Width (px)</label>
-                  <input type="number" value={width} onChange={(e) => setWidth(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 w-24 text-center font-bold" />
+                  <input type="number" value={width} onChange={(e) => setWidth(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 w-24 text-center font-bold text-gray-900" />
                 </div>
                 <span className="text-gray-400 font-bold mt-4">X</span>
                 <div className="flex flex-col">
                   <label className="text-xs font-bold text-gray-500 uppercase">Height (px)</label>
-                  <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 w-24 text-center font-bold" />
+                  <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} className="border-2 border-gray-200 rounded-lg p-2 w-24 text-center font-bold text-gray-900" />
                 </div>
               </div>
             )}

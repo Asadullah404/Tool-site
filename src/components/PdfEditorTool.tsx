@@ -202,7 +202,7 @@ export default function PdfEditorTool({ toolId }: PdfEditorToolProps) {
               className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-red-100 outline-none font-bold mb-4 text-sm"
             />
             <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 text-left">OR Upload Logo (PNG/JPG)</label>
-            <input type="file" accept="image/*" onChange={onLogoChange} className="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-red-50 file:text-red-700 hover:file:bg-red-100" />
+            <input type="file" accept="image/*" onChange={onLogoChange} className="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-red-50 file:text-red-700 hover:file:bg-red-100 text-gray-900" />
             {watermarkImage && <p className="mt-2 text-green-500 font-bold text-[10px]">✓ Logo uploaded!</p>}
           </div>
           <div className="flex-1 bg-red-50 p-6 rounded-2xl border-2 border-red-100 flex flex-col items-center justify-center text-center">
@@ -369,7 +369,7 @@ export default function PdfEditorTool({ toolId }: PdfEditorToolProps) {
                  <input 
                    type="text" 
                    placeholder="Enter website URL..."
-                   className="w-full p-5 border-2 border-gray-100 rounded-2xl focus:ring-4 focus:ring-red-50 outline-none text-lg font-medium mb-6 shadow-sm"
+                   className="w-full p-5 border-2 border-gray-100 rounded-2xl focus:ring-4 focus:ring-red-50 outline-none text-lg font-medium mb-6 shadow-sm text-gray-900"
                    value={url}
                    onChange={(e) => setUrl(e.target.value)}
                  />

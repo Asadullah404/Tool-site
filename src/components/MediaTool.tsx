@@ -91,7 +91,7 @@ export default function MediaTool({ title, description, format, buttonText }: Me
           <input
             type="text"
             placeholder="Paste your link here (YouTube, Instagram, Facebook...)"
-            className="flex-grow p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="flex-grow p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-900"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
@@ -116,7 +116,7 @@ export default function MediaTool({ title, description, format, buttonText }: Me
           <input 
             type="text" 
             placeholder="Enter code" 
-            className="flex-grow p-2 border border-gray-300 rounded"
+            className="flex-grow p-2 border border-gray-300 rounded text-gray-900"
             value={coupon}
             onChange={(e) => setCoupon(e.target.value)}
           />
