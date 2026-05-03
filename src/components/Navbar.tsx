@@ -62,7 +62,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="text-sm font-bold hover:text-red-600 uppercase">Login</Link>
+                <Link href="/login" className="text-sm font-bold text-gray-700 hover:text-red-600 uppercase">Login</Link>
                 <Link href="/register" className="bg-red-600 text-white px-4 py-2 rounded font-bold text-sm hover:bg-red-700 uppercase">Sign Up</Link>
               </>
             )}
