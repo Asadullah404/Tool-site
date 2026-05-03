@@ -8,6 +8,7 @@ import { TOOLS } from '@/constants/tools';
 
 export default function Navbar() {
   const [user, setUser] = useState<any>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -28,7 +29,7 @@ export default function Navbar() {
               </span>
             </Link>
             
-            {/* Mega Menu */}
+            {/* Mega Menu - Desktop */}
             <div className="hidden md:flex gap-4 text-sm font-bold text-gray-700 uppercase">
               {['PDF', 'Image', 'Media', 'AI', 'Calculator'].map((category) => (
                 <div key={category} className="group relative py-4">
@@ -48,7 +49,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             {user ? (
               <>
                 <Link href="/dashboard" className="text-sm font-bold text-gray-700 hover:text-red-600 uppercase">Dashboard</Link>
@@ -66,8 +67,60 @@ export default function Navbar() {
               </>
             )}
           </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-700 hover:text-indigo-600 focus:outline-none"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-4">
+          <div className="flex flex-col gap-2">
+            {['PDF', 'Image', 'Media', 'AI', 'Calculator'].map((category) => (
+              <Link 
+                key={category} 
+                href={`/?category=${category.toLowerCase()}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-gray-700 uppercase py-2 border-b border-gray-50"
+              >
+                {category} Tools
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-col gap-3 pt-2">
+            {user ? (
+              <>
+                <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-gray-700 uppercase py-2">Dashboard</Link>
+                <button 
+                  onClick={() => { signOut(auth); setIsMobileMenuOpen(false); }}
+                  className="bg-gray-100 text-gray-700 px-4 py-3 rounded font-bold text-sm uppercase text-center"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-gray-700 uppercase py-2">Login</Link>
+                <Link href="/register" onClick={() => setIsMobileMenuOpen(false)} className="bg-red-600 text-white px-4 py-3 rounded font-bold text-sm uppercase text-center">Sign Up</Link>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

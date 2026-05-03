@@ -53,6 +53,16 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
   const [code, setCode] = useState('// Example: Calculate Fibonacci\nfunction fib(n) {\n  return n <= 1 ? n : fib(n-1) + fib(n-2);\n}\n\nlog("Fib(10) = " + fib(10));');
   const [logs, setLogs] = useState<string[]>([]);
 
+  // --- NEW CALCULATORS STATE ---
+  const [principal, setPrincipal] = useState('10000');
+  const [rate, setRate] = useState('5');
+  const [time, setTime] = useState('5');
+  const [costPrice, setCostPrice] = useState('100');
+  const [sellingPrice, setSellingPrice] = useState('150');
+  const [salvageValue, setSalvageValue] = useState('1000');
+  const [mathExpr, setMathExpr] = useState('2x + 3x');
+  const [mathVar, setMathVar] = useState('x');
+
   if (!tool) {
     return <div className="py-20 text-center font-bold text-gray-400 uppercase tracking-widest">Tool not found</div>;
   }
@@ -81,7 +91,7 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
           .replace(/π/g, 'pi')
           .replace(/e/g, 'e')
           .replace(/√\(/g, 'sqrt(')
-          .replace(/ln\(/g, 'log(') // mathjs log is ln
+          .replace(/ln\(/g, 'log(') 
           .replace(/log\(/g, 'log10(');
         
         const res = math.evaluate(cleanEq);
@@ -93,7 +103,6 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
       return;
     }
 
-    // Logic for appending
     const appendMap: any = {
         'x²': '^2',
         'x³': '^3',
@@ -169,6 +178,74 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
     }
   };
 
+  // --- NEW CALCULATORS LOGIC ---
+  const calculateFinancial = () => {
+    const p = parseFloat(principal);
+    const r = parseFloat(rate) / 100;
+    const t = parseFloat(time);
+    const amount = p * Math.pow((1 + r), t);
+    setResult(`$${amount.toFixed(2)}`);
+  };
+
+  const calculateEMI = () => {
+    const p = parseFloat(principal);
+    const r = parseFloat(rate) / 12 / 100;
+    const n = parseFloat(time) * 12;
+    if (r === 0) {
+      setResult(`$${(p / n).toFixed(2)}`);
+    } else {
+      const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+      setResult(`$${emi.toFixed(2)}`);
+    }
+  };
+
+  const calculateProfitLoss = () => {
+    const cp = parseFloat(costPrice);
+    const sp = parseFloat(sellingPrice);
+    const diff = sp - cp;
+    const percent = (diff / cp) * 100;
+    if (diff >= 0) {
+      setResult(`Profit: $${diff.toFixed(2)} (${percent.toFixed(2)}%)`);
+    } else {
+      setResult(`Loss: $${Math.abs(diff).toFixed(2)} (${Math.abs(percent).toFixed(2)}%)`);
+    }
+  };
+
+  const calculateDepreciation = () => {
+    const cost = parseFloat(principal);
+    const salvage = parseFloat(salvageValue);
+    const life = parseFloat(time);
+    const dep = (cost - salvage) / life;
+    setResult(`$${dep.toFixed(2)} / year`);
+  };
+
+  const solveMath = () => {
+    try {
+      if (toolId === 'math-simplify') {
+        setResult(math.simplify(mathExpr).toString());
+      } else if (toolId === 'math-derivative') {
+        setResult(math.derivative(mathExpr, mathVar).toString());
+      } else if (toolId === 'math-factor') {
+        // Fallback basic factoring / expanding logic for demo
+        try {
+          const simplified = math.simplify(mathExpr).toString();
+          setResult(`Simplified: ${simplified}`);
+        } catch {
+          setResult("Cannot factor this expression natively.");
+        }
+      } else if (toolId === 'math-integrate') {
+        setResult(`∫(${mathExpr}) d${mathVar} (Symbolic integration not fully supported in browser)`);
+      } else if (toolId === 'math-solve') {
+         // evaluate simple expression
+         setResult(math.evaluate(mathExpr).toString());
+      }
+    } catch (e: any) {
+      setResult(`Error: ${e.message}`);
+    }
+  };
+
+  // --- RENDERS ---
+
   const CasioButton = ({ label, secondary, alphaLabel, className = "", onClick }: any) => (
     <div className="flex flex-col items-center group">
       <div className="flex gap-2 mb-1 h-3">
@@ -186,10 +263,7 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
 
   const renderCasio = () => (
     <div className="max-w-md mx-auto bg-[#1a1a1a] p-8 rounded-[3rem] border-x-4 border-t-2 border-b-12 border-gray-900 shadow-2xl relative overflow-hidden">
-      {/* Decorative Texture */}
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '10px 10px' }}></div>
-      
-      {/* Brand & Model */}
       <div className="flex justify-between items-center mb-6 px-2 relative z-10">
         <span className="text-gray-400 font-black italic text-sm tracking-tighter">CASIO</span>
         <div className="text-right">
@@ -197,8 +271,6 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
           <p className="text-[11px] text-white font-black italic">fx-991EX</p>
         </div>
       </div>
-
-      {/* High-Contrast LCD Screen */}
       <div className="bg-[#a8b89e] p-6 rounded-2xl mb-8 font-mono shadow-[inset_0_4px_10px_rgba(0,0,0,0.3)] border-4 border-[#8e9d85] min-h-[120px] flex flex-col justify-between relative z-10">
         <div className="flex justify-between items-center text-[10px] text-[#2a3026] font-black opacity-80 uppercase tracking-widest border-b border-[#2a3026]/10 pb-1">
           <div className="flex gap-2">
@@ -213,16 +285,12 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
            <div className="text-[#1a1c16] text-3xl font-black text-right truncate drop-shadow-sm">{display}</div>
         </div>
       </div>
-
-      {/* Navigation Block */}
       <div className="grid grid-cols-4 gap-4 mb-8 px-2 relative z-10">
         <CasioButton label="SHIFT" onClick={handleCasio} className="bg-amber-500 text-black text-[9px]" />
         <CasioButton label="ALPHA" onClick={handleCasio} className="bg-rose-500 text-white text-[9px]" />
         <CasioButton label="MENU" secondary="SETUP" onClick={handleCasio} className="bg-gray-700 text-white" />
         <CasioButton label="ON" onClick={() => setDisplay('0')} className="bg-gray-700 text-white" />
       </div>
-
-      {/* Scientific Function Grid */}
       <div className="grid grid-cols-6 gap-2 mb-8 relative z-10">
         {[
           { l: 'OPTN', s: 'QR' }, { l: 'Calc', s: '=' }, { l: '∫dx', s: 'd/dx' }, { l: 'x⁻¹', s: 'x!' }, { l: 'log', s: 'logₐb' }, { l: 'frac', s: 'b/c' },
@@ -232,8 +300,6 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
           <CasioButton key={i} label={btn.l} secondary={btn.s} alphaLabel={btn.a} onClick={handleCasio} className="bg-[#3a3a3a] text-gray-200" />
         ))}
       </div>
-
-      {/* Main Keypad */}
       <div className="grid grid-cols-5 gap-3 relative z-10">
         {[
           { l: '7' }, { l: '8' }, { l: '9' }, { l: 'DEL', c: 'bg-rose-700 text-white' }, { l: 'AC', c: 'bg-rose-700 text-white' },
@@ -325,6 +391,96 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
     </div>
   );
 
+  const renderFinancialForm = (calculateFn: () => void, isEMI = false) => (
+    <div className="flex flex-col md:flex-row gap-10 items-center">
+      <div className="flex-1 space-y-6 w-full">
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Principal Amount ($)</label>
+          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">{isEMI ? 'Annual Interest Rate (%)' : 'Interest Rate (%)'}</label>
+          <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">{isEMI ? 'Time (Years)' : 'Time Period'}</label>
+          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <button onClick={calculateFn} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>
+      </div>
+      <div className="flex-1 bg-indigo-50 p-10 rounded-3xl border-2 border-indigo-100 text-center w-full">
+        <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Result</span>
+        <h4 className="text-4xl md:text-5xl font-black text-indigo-900 my-4 break-all">{result || '--'}</h4>
+      </div>
+    </div>
+  );
+
+  const renderProfitLossForm = () => (
+    <div className="flex flex-col md:flex-row gap-10 items-center">
+      <div className="flex-1 space-y-6 w-full">
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Cost Price ($)</label>
+          <input type="number" value={costPrice} onChange={(e) => setCostPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Selling Price ($)</label>
+          <input type="number" value={sellingPrice} onChange={(e) => setSellingPrice(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <button onClick={calculateProfitLoss} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>
+      </div>
+      <div className="flex-1 bg-indigo-50 p-10 rounded-3xl border-2 border-indigo-100 text-center w-full">
+        <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Result</span>
+        <h4 className="text-3xl md:text-4xl font-black text-indigo-900 my-4 break-words">{result || '--'}</h4>
+      </div>
+    </div>
+  );
+
+  const renderDepreciationForm = () => (
+    <div className="flex flex-col md:flex-row gap-10 items-center">
+      <div className="flex-1 space-y-6 w-full">
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Asset Cost ($)</label>
+          <input type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Salvage Value ($)</label>
+          <input type="number" value={salvageValue} onChange={(e) => setSalvageValue(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Useful Life (Years)</label>
+          <input type="number" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" />
+        </div>
+        <button onClick={calculateDepreciation} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate Straight Line</button>
+      </div>
+      <div className="flex-1 bg-indigo-50 p-10 rounded-3xl border-2 border-indigo-100 text-center w-full">
+        <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Result</span>
+        <h4 className="text-3xl md:text-4xl font-black text-indigo-900 my-4 break-words">{result || '--'}</h4>
+      </div>
+    </div>
+  );
+
+  const renderMathToolForm = () => (
+    <div className="flex flex-col md:flex-row gap-10 items-center">
+      <div className="flex-1 space-y-6 w-full">
+        <div>
+          <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Mathematical Expression</label>
+          <input type="text" value={mathExpr} onChange={(e) => setMathExpr(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" placeholder="e.g. 2x + 3x or sin(x)" />
+        </div>
+        {(toolId === 'math-derivative' || toolId === 'math-integrate') && (
+          <div>
+            <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Variable to differentiate/integrate with respect to</label>
+            <input type="text" value={mathVar} onChange={(e) => setMathVar(e.target.value)} className="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-xl focus:ring-4 focus:ring-indigo-100 outline-none font-bold" placeholder="e.g. x" />
+          </div>
+        )}
+        <button onClick={solveMath} className="w-full py-4 bg-indigo-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg hover:bg-indigo-700 transition-all">Calculate</button>
+      </div>
+      <div className="flex-1 bg-indigo-50 p-10 rounded-3xl border-2 border-indigo-100 text-center w-full">
+        <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Result</span>
+        <h4 className="text-2xl font-black text-indigo-900 my-4 break-words">{result || '--'}</h4>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-white pb-20">
       <div className="bg-gray-50 border-b border-gray-100 py-24">
@@ -345,6 +501,11 @@ export default function CalculatorTool({ toolId }: CalculatorToolProps) {
           {toolId === 'basic-calculator' && renderCasio()}
           {toolId === 'graphing-calculator' && renderGraphing()}
           {toolId === 'programmable-calculator' && renderProgrammable()}
+          {toolId === 'financial-calculator' && renderFinancialForm(calculateFinancial, false)}
+          {toolId === 'emi-calculator' && renderFinancialForm(calculateEMI, true)}
+          {toolId === 'profit-loss-calc' && renderProfitLossForm()}
+          {toolId === 'depreciation-calc' && renderDepreciationForm()}
+          {(toolId === 'math-simplify' || toolId === 'math-factor' || toolId === 'math-derivative' || toolId === 'math-integrate' || toolId === 'math-solve') && renderMathToolForm()}
         </div>
       </div>
     </div>
